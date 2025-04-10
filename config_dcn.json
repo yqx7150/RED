@@ -1,0 +1,14 @@
+ {
+    "datasets_path" :[
+        "./datasets/d20_sino_paths.npy"
+    ],
+    "sino_size":[360,360],
+    "batch_size": 8,
+    "epoch_num": 25,
+    "lr":5e-5,
+    "lambda":1.0,
+    "max_timestep":500,
+    "pre_trained_diffusion":"./models/REN_D20_20250409_155035/model_0.pt",
+    "save_path_root":"./models/DCN_D20",
+    "device":"cuda:1"
+}
