@@ -53,8 +53,8 @@ def train_dcn(params):
             beta_t = betas[ts].reshape(-1,1,1,1)
 
             max_v = torch.clamp(batch[0].view(batch_size, -1).max(dim=1, keepdim=True)[0][:, None, None], min=0.1).to(device)
-            low_dose_sino =  batch[0].to(device) / max_v
-            norm_dose_sino = batch[1].to(device) / max_v
+            low_dose_sino = (batch[0].to(device) / max_v - 0.5 ) * 2
+            norm_dose_sino = (batch[1].to(device) / max_v - 0.5 ) * 2
 
             x_T = low_dose_sino
             x_0 = norm_dose_sino
@@ -70,7 +70,7 @@ def train_dcn(params):
 
             pred_drift = diffusion.nn_dcn(drift_x_t, ts)
 
-            loss = MSELoss(pred_drift,drift)
+            loss = MSELoss(pred_drift, drift)
 
             loss.backward()
 
@@ -95,16 +95,17 @@ def train_dcn(params):
                     val_low_dose_sino =  val_batch[0].to(device) / val_max_v
                     val_norm_dose_sino = val_batch[1].to(device) / val_max_v
 
-                    val_x_T = val_low_dose_sino
+                    val_x_T = (val_low_dose_sino - 0.5 ) * 2
                     val_x_0 = val_norm_dose_sino
                     val_x_t = diffusion.reverse(val_x_T, 50, need_corr= True)
+                    val_x_t = val_x_t / 2 + 0.5
 
                     val_inp_img_np = (val_x_T[0][0]).detach().to("cpu").numpy()
-                    writer.add_image(f'Images/1 Low Dose', val_inp_img_np, global_step, dataformats='HW')
+                    writer.add_image(f'Images/1 Low Dose', normalize(val_inp_img_np), global_step, dataformats='HW')
                     norm_dose_img_np = ((val_norm_dose_sino)[0][0]).detach().to("cpu").numpy()
-                    writer.add_image(f'Images/2 Normal Dose', norm_dose_img_np, global_step, dataformats='HW')
+                    writer.add_image(f'Images/2 Normal Dose', normalize(norm_dose_img_np), global_step, dataformats='HW')
                     pred_sino_np =  (val_x_t[0][0]).detach().to("cpu").numpy()
-                    writer.add_image(f'Images/3 Predicted', pred_sino_np, global_step, dataformats='HW')
+                    writer.add_image(f'Images/3 Predicted', normalize(pred_sino_np), global_step, dataformats='HW')
 
                     psnr = batch_psnr(val_x_t, val_norm_dose_sino)
                     writer.add_scalar(f'Measure/PSNR', psnr.item(), global_step)
@@ -148,13 +149,13 @@ def train_dcn(params):
                     del reversed_pred_pet, reversed_norm_pet, reversed_low_pet
 
                 del max_v, low_dose_sino, norm_dose_sino, x_T, x_0, x_t, pred_x_0, loss
+            
+            diffusion.training_step = global_step
                 
             if global_step % 10000 == 0:
                 diffusion.save(save_path)
                         
             global_step = global_step + 1
-
-            diffusion.training_step = global_step
 
 
 if __name__ == '__main__':

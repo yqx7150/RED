@@ -33,7 +33,7 @@ def train_ren(params):
 
     alphas = diffusion.alphas.to(device)
     betas = diffusion.betas.to(device)
-    global_step = diffusion.training_step
+    global_step = 0
 
     # Create tensorboard writer
     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -147,13 +147,13 @@ def train_ren(params):
                 del max_v, low_dose_sino, norm_dose_sino, x_T, x_0, x_t, pred_x_0
                 del residual_loss, pred_loss, total_loss
 
+            diffusion.training_step = global_step
+
             if global_step % 10000 == 0:
                 diffusion.save(save_path)
                         
             global_step = global_step + 1
-
-            diffusion.training_step = global_step
-
+            
 
 if __name__ == '__main__':
 
