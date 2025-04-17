@@ -40,6 +40,12 @@ class REDiffusion(nn.Module):
 
         return x_t
     
+    def to_device(self, device):
+        self.nn_ren.to(device)
+        self.nn_dcn.to(device)
+        self.alphas.to(device)
+        self.betas.to(device)
+
     def save(self, save_path:str):
         "Save model and parameters"
         
@@ -60,8 +66,8 @@ class REDiffusion(nn.Module):
 
         self.training_step  = data["training_step"]
         self.max_T          = data["max_T"]
-        self.alphas         = data["alphas"]
-        self.betas         = data["betas"]
+        self.alphas         = data["alphas"].to(self.device)
+        self.betas         = data["betas"].to(self.device)
         self.nn_ren.load_state_dict(data['nn_ren'])
         self.nn_dcn.load_state_dict(data['nn_dcn'])
 
