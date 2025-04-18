@@ -1,6 +1,7 @@
 
 import pydicom
 import numpy as np
+from itertools import cycle
 from torch.utils.data import Dataset
 from torch.utils.data import DataLoader, Subset, ConcatDataset
 
@@ -68,7 +69,7 @@ def create_dataloader(params):
     val_dataset = Subset(total_dataset, range(int(len(total_dataset) * 0.95), len(total_dataset)))
 
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True, pin_memory = True, num_workers=0)
-    val_dataloader = iter(DataLoader(val_dataset, batch_size=batch_size, shuffle=True, drop_last=True))
+    val_dataloader = cycle(DataLoader(val_dataset, batch_size=batch_size, shuffle=True, drop_last=True))
 
     return train_dataloader, val_dataloader
     

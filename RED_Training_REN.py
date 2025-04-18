@@ -85,7 +85,7 @@ def train_ren(params):
             if need_evl or global_step % 1000 == 0:
                 
                 with torch.no_grad():
-                    val_batch = next(iter(val_dataloader))
+                    val_batch = next(val_dataloader)
 
                     val_max_v = torch.clamp(val_batch[0].view(batch_size, -1).max(dim=1, keepdim=True)[0][:, None, None], min=0.1).to(device)
                     val_low_dose_sino = val_batch[0].to(device) / val_max_v
