@@ -2,7 +2,7 @@
 **Paper:** Residual Estimation Diffusion for Low-Dose PET Sinogram Reconstruction   
 **Authors**: Xingyu Ai, Bin Huang, Fang Chen, Liu Shi, Binxuan Li, Shaoyu Wang*, Qiegen Liu*   
     
-Published on Medical Image Analysis(2025), https://www.sciencedirect.com/science/article/pii/S1361841525001057   
+Medical Image Analysis(2025), https://www.sciencedirect.com/science/article/pii/S1361841525001057   
    
 Date : April-10-2025      
 Version : 1.0     
