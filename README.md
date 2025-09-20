@@ -60,13 +60,15 @@ Due to the high quality of the initial data, all models performrelatively well u
 * ALL-PET: A Low-resource and Low-shot PET Foundation Model in Projection Domain  [<font size=5>**[Paper]**</font>](https://github.com/yqx7150/RAYSOLUTION_PETdata/blob/main/Paper/ALL_PET_Finalx.pdf)   [<font size=5>**[Code]**</font>](https://github.com/yqx7150/ALL-PET)
 
 * Diffusion Transformer Model with Compact Prior for Low-dose PET Reconstruction [<font size=5>**[Paper]**</font>](https://arxiv.org/abs/2407.00944)     [<font size=5>**[Code]**</font>](https://github.com/yqx7150/dtm)
-
-* PET Tracer Separation using Conditional Diffusion Transformer with Multi-latent Space Learning [<font size=5>**[Paper]**</font>](https://arxiv.org/abs/2506.16934#:~:text=In%20this%20study%2C%20a%20multi-latent%20space%20guided%20texture,model%20%28MS-CDT%29%20is%20proposed%20for%20PET%20tracer%20separation.)
-
-* Synthetic CT Generation via Variant Invertible Network for Brain PET Attenuation Correction [<font size=5>**[Paper]**</font>](https://ieeexplore.ieee.org/document/10666843) [<font size=5>**[Code]**</font>](https://github.com/yqx7150/PET_AC_sCT)
-
+     
+* Double-Constraint Diffusion Model with Nuclear Regularization for Ultra-low-dose PET Reconstruction  [<font size=5>**[Paper]**</font>](https://arxiv.org/pdf/2509.00395)   [<font size=5>**[Code]**</font>](https://github.com/yqx7150/DCDM)
+    
 * Raysolution_PET_Data [<font size=5>**[Data]**</font>](https://github.com/yqx7150/Raysolution_PET_Data)   
 
 * Spatial-Temporal Guided Diffusion Transformer Probabilistic Model for Delayed Scan PET Image Prediction [<font size=5>**[Paper]**</font>](https://ieeexplore.ieee.org/abstract/document/10980366)   [<font size=5>**[Code]**</font>](https://github.com/yqx7150/st-DTPM)    
+          
+* PET Tracer Separation using Conditional Diffusion Transformer with Multi-latent Space Learning [<font size=5>**[Paper]**</font>](https://arxiv.org/abs/2506.16934#:~:text=In%20this%20study%2C%20a%20multi-latent%20space%20guided%20texture,model%20%28MS-CDT%29%20is%20proposed%20for%20PET%20tracer%20separation.)
 
-* Double-Constraint Diffusion Model with Nuclear Regularization for Ultra-low-dose PET Reconstruction  [<font size=5>**[Paper]**</font>](https://arxiv.org/pdf/2509.00395)   [<font size=5>**[Code]**</font>](https://github.com/yqx7150/DCDM)
+* Synthetic CT Generation via Variant Invertible Network for Brain PET Attenuation Correction [<font size=5>**[Paper]**</font>](https://ieeexplore.ieee.org/document/10666843) [<font size=5>**[Code]**</font>](https://github.com/yqx7150/PET_AC_sCT)
+      
+* A Prior-Guided Joint Diffusion Model in Projection Domain for PET Tracer Conversion [<font size=5>**[Paper]**</font>](https://arxiv.org/abs/2506.16733) [<font size=5>**[Code]**</font>](https://github.com/yqx7150/PJDM)    
