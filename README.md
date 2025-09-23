@@ -73,4 +73,6 @@ Due to the high quality of the initial data, all models performrelatively well u
 
 * Synthetic CT Generation via Variant Invertible Network for Brain PET Attenuation Correction [<font size=5>**[Paper]**</font>](https://ieeexplore.ieee.org/document/10666843) [<font size=5>**[Code]**</font>](https://github.com/yqx7150/PET_AC_sCT)
       
-* A Prior-Guided Joint Diffusion Model in Projection Domain for PET Tracer Conversion [<font size=5>**[Paper]**</font>](https://arxiv.org/abs/2506.16733) [<font size=5>**[Code]**</font>](https://github.com/yqx7150/PJDM)    
+* A Prior-Guided Joint Diffusion Model in Projection Domain for PET Tracer Conversion [<font size=5>**[Paper]**</font>](https://arxiv.org/abs/2506.16733) [<font size=5>**[Code]**</font>](https://github.com/yqx7150/PJDM)
+       
+* Positron Emission Tomography Tracer Conversion via Variable Augmented Invertible Network [<font size=5>**[Paper]**</font>](https://link.springer.com/article/10.1007/s12204-025-2844-2)      
